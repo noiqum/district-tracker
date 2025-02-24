@@ -1,0 +1,22 @@
+.district-list {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.district-list h2 {
+  margin-bottom: 10px;
+}
+
+.district-list ul {
+  list-style-type: none;
+  padding: 0;
+  height: 90vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.district-list li {
+  margin: 5px 0;
+} 
