@@ -23,10 +23,10 @@ export default function NavigationControls() {
 
   return (
     <div className="flex m-4 sticky top-0 left-0">
-      <div className="bg-white rounded-full shadow-md p-1 flex items-center relative">
+      <div className="bg-[#E7E9F0] rounded-full shadow-md p-1 flex items-center relative">
         {/* Sliding background */}
         <div 
-          className="absolute h-10 w-1/2 bg-blue-500 rounded-full transition-all duration-300 ease-in-out z-0"
+          className="absolute h-10 w-1/2 bg-[#0E2367] rounded-full transition-all duration-300 ease-in-out z-0"
           style={{ 
             left: currentView === View.MAP ? '0' : '50%',
             transform: isAnimating ? 'scale(1.05)' : 'scale(1)'

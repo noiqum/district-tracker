@@ -14,7 +14,7 @@ export default async function Home() {
   }
   return (
     
-      <main className="w-screen min-h-screen overflow-hidden max-w-screen" >
+      <main className="w-screen min-h-screen overflow-hidden max-w-screen bg-neutral-700" >
         <NavigationControls/>
         <ViewContainer initialDistricts={districtList} />
       </main>
