@@ -9,7 +9,10 @@ interface DistrictListProps {
 const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
   return (
     <div className="district-list">
+      <div className='district-list_head'>
       <h2>İlçeler</h2>
+      </div>
+      
       <ul>
         {districts.map((district) => (
           <li key={district.id}>
