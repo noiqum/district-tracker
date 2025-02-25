@@ -1,5 +1,5 @@
 
-import IzmirMap from "@/components/IzmirMap/IzmirMap";
+
 import { supabase } from "@/lib/supabase/supabase";
 import NavigationControls from "@/components/NavigationControls/NavigationControls";
 import ViewContainer from "@/components/ViewContainer/ViewContainer";

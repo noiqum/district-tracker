@@ -1,7 +1,7 @@
 'use client';
 // components/NavigationControls.tsx
 import { useNavigation, View } from '@/context/NavigationContex';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import { Map, List } from 'lucide-react'; // Import icons from lucide-react
 
 export default function NavigationControls() {
