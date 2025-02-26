@@ -5,6 +5,10 @@ import "./IzmirMap.scss";
 import {  TDistrict } from '@/Data/Data';
 import { District } from '../District/District';
 import {supabase} from "@/lib/supabase/supabase"
+import {Edit2} from "lucide-react"
+import { useAuthStore } from '@/lib/store/auth-store';
+import { useModalStore } from '@/lib/store/modal-store';
+import { Modal } from '../ModalProvider/ModalProvider';
 
 interface IzmirMapProps{
   classname:string,
@@ -14,6 +18,12 @@ interface IzmirMapProps{
 const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
   const [selectedDistrict, setSelectedDistrict] = useState<TDistrict | null>(null);
   const [districts,setDistricts]=useState<TDistrict[]>(districtList)
+  const {isAuthenticated,isAdmin}=useAuthStore()
+  const {openModal}=useModalStore()
+  const updateBtnHandler=()=>{
+    if(isAuthenticated && isAdmin) return
+    openModal(Modal.AUTH)
+  }
 
   useEffect(() => {
    /*  const fetchDistricts = async () => {
@@ -52,11 +62,7 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
     setSelectedDistrict(district)
   };
 
-  const handleLeave = () => {
-    // Clear only if not selected via tap
-    console.log("leave")
-    
-  };
+ 
 
 
   return (
@@ -65,6 +71,9 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
         <div className="info-box">
           <h3>{selectedDistrict.name}</h3>
           <p>Product: {selectedDistrict.id || 'N/A'}</p>
+          <button onClick={updateBtnHandler} className='flex items-center h-10 w-min-content px-4 bg-[#0E2367] rounded-full transition-all duration-300 ease-in-out hover:shadow-md mt-4'>Güncelle 
+            <Edit2 className='ml-2' size={14}></Edit2>
+          </button>
         </div>
       )}
 
@@ -90,8 +99,8 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
             key={district.name + index}
             district={district}
             onHover={() => handleHover(district)}
-            onLeave={handleLeave}
-            onTap={() =>console.log("tap")}
+           
+           
             isSelected={selectedDistrict?.id === district.id}
           />
         ))}

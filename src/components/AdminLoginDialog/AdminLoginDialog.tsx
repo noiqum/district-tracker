@@ -41,14 +41,14 @@ export default function AdminLoginDialog({ isOpen, onClose, onSuccess }: AdminLo
   
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
-      <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+      <div className="w-11/12 max-w-md rounded-lg bg-slate-50 p-6 shadow-xl">
         <div className="mb-4 flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Admin Login</h2>
+          <h2 className="text-xl font-semibold text-slate-900">Admin Login</h2>
           <button 
             onClick={onClose}
-            className="rounded-full p-1 hover:bg-gray-100"
+            className="rounded-full p-1 hover:bg-gray-400"
           >
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="h-5 w-5" fill="none" stroke="black" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
@@ -62,7 +62,7 @@ export default function AdminLoginDialog({ isOpen, onClose, onSuccess }: AdminLo
         
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="mb-1 block text-sm font-medium">
+            <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-900">
               Email
             </label>
             <input
@@ -70,13 +70,14 @@ export default function AdminLoginDialog({ isOpen, onClose, onSuccess }: AdminLo
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full rounded-md border border-slate-600 p-2 focus:border-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-900"
+              style={{ color: 'slate-900' }}
               required
             />
           </div>
           
           <div className="mb-6">
-            <label htmlFor="password" className="mb-1 block text-sm font-medium">
+            <label htmlFor="password" className="mb-1 block text-sm font-medium text-slate-900">
               Password
             </label>
             <input
@@ -84,7 +85,8 @@ export default function AdminLoginDialog({ isOpen, onClose, onSuccess }: AdminLo
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-md border border-gray-300 p-2 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="w-full text-slate-900 rounded-md border border-slate-600 p-2 focus:border-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              style={{ color: 'slate-900' }}
               required
             />
           </div>

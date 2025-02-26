@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { NavigationProvider } from '../context/NavigationContex';
+import { ModalProvider } from "@/components/ModalProvider/ModalProvider";
 
 
 export const metadata: Metadata = {
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <ModalProvider>
         <NavigationProvider>
           {children}
         </NavigationProvider>
+        </ModalProvider>
       </body>
     </html>
   );

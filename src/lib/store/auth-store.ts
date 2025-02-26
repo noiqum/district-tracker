@@ -6,7 +6,7 @@ import { supabase } from '../supabase/supabase'; // Your existing Supabase clien
 interface AdminUser {
   id: string;
   email: string;
-  role: string;
+  userrole: string;
   name: string;
 }
 
@@ -22,61 +22,61 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       user: null,
       isAdmin: false,
       isAuthenticated: false,
       isLoading: true,
-      
+
       login: async (email, password) => {
         try {
           // Sign in with Supabase
+          console.log(email)
           const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password,
           });
-          
+
           if (error) {
             return { success: false, error: error.message };
           }
-          
+
           if (!data.user) {
             return { success: false, error: 'User not found' };
           }
-          
-          // Check user's role from your users table
+
           const { data: userData, error: userError } = await supabase
-            .from('users') // Your users table name
-            .select('role, name')
+            .from('users') 
+            .select('userrole, name')
             .eq('id', data.user.id)
             .single();
-            
+
           if (userError) {
             return { success: false, error: 'Failed to fetch user data' };
           }
-          
-          const isAdmin = userData?.role === 'admin';
-          
+
+          const isAdmin = userData?.userrole === 'admin';
+
           // Set the user state
           set({
             user: {
               id: data.user.id,
               email: data.user.email!,
-              role: userData?.role || 'user',
+              userrole: userData?.userrole || 'user',
               name: userData?.name || 'User',
             },
             isAdmin,
             isAuthenticated: true,
             isLoading: false,
           });
-          
+
           return { success: true };
         } catch (error) {
           console.error('Login error:', error);
           return { success: false, error: 'An unexpected error occurred' };
         }
       },
-      
+
       logout: async () => {
         try {
           await supabase.auth.signOut();
@@ -85,38 +85,38 @@ export const useAuthStore = create<AuthState>()(
           console.error('Logout error:', error);
         }
       },
-      
+
       checkAuth: async () => {
         set({ isLoading: true });
-        
+
         try {
           // Check current session
           const { data: { session } } = await supabase.auth.getSession();
-          
+
           if (!session) {
             set({ user: null, isAdmin: false, isAuthenticated: false, isLoading: false });
             return;
           }
-          
-          // Fetch user role
+
+          // Fetch user userrole
           const { data: userData, error: userError } = await supabase
             .from('users') // Your users table name
-            .select('role, name')
+            .select('userrole, name')
             .eq('id', session.user.id)
             .single();
-            
+
           if (userError) {
             set({ user: null, isAdmin: false, isAuthenticated: false, isLoading: false });
             return;
           }
-          
-          const isAdmin = userData?.role === 'admin';
-          
+
+          const isAdmin = userData?.userrole === 'admin';
+
           set({
             user: {
               id: session.user.id,
               email: session.user.email!,
-              role: userData?.role || 'user',
+              userrole: userData?.userrole || 'user',
               name: userData?.name || 'User',
             },
             isAdmin,
