@@ -9,6 +9,7 @@ import {Edit2} from "lucide-react"
 import { useAuthStore } from '@/lib/store/auth-store';
 import { useModalStore } from '@/lib/store/modal-store';
 import { Modal } from '../ModalProvider/ModalProvider';
+import { useDistrictStore } from '@/lib/store/district-store';
 
 interface IzmirMapProps{
   classname:string,
@@ -16,26 +17,21 @@ interface IzmirMapProps{
 }
 
 const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
-  const [selectedDistrict, setSelectedDistrict] = useState<TDistrict | null>(null);
+ 
   const [districts,setDistricts]=useState<TDistrict[]>(districtList)
   const {isAuthenticated,isAdmin}=useAuthStore()
   const {openModal}=useModalStore()
+  const {selectedDistrict,setSelectedDistrict}=useDistrictStore()
+
   const updateBtnHandler=()=>{
-    if(isAuthenticated && isAdmin) return
+    if(isAuthenticated && isAdmin) {
+      return  openModal(Modal.UPDATE_DISTRICT)
+    }
     openModal(Modal.AUTH)
   }
 
   useEffect(() => {
-   /*  const fetchDistricts = async () => {
-      const { data, error } = await supabase.from('districts').select('*');
-      if (error) {
-        console.error('Error fetching districts:', error.message);
-        return;
-      }
-      setDistricts(data as TDistrict[]); // Type assertion since TDistrict matches DistrictRow
-    };
-    fetchDistricts(); */
-
+  
     // Real-time subscription
     const subscription = supabase
       .channel('public:districts')
