@@ -1,7 +1,12 @@
 .district {
-    transition: fill 0.3s ease;
-  
-    
-  
-    
+  transition: fill 0.3s ease;
+
+  &:hover , &.selected {
+    stroke:  #FA532E;
+    stroke-width: 2;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
   }
+
+
+}
