@@ -60,7 +60,9 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
    console.log("district",district)
     setSelectedDistrict(district)
   };
-
+  const handleClicked = (district: TDistrict) => {
+    setSelectedDistrict(district)
+  }
  
 
 
@@ -70,8 +72,8 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
         <div className="info-box">
           <h3>{selectedDistrict.name}</h3>
           <p>Product: {selectedDistrict.product || 'N/A'}</p>
-          {(selectedDistrict.product === "med" || selectedDistrict.product === "edge")? <span>
-            <Image className='min-w-[50px]' src={selectedDistrict.product === "med" ? medProfile : edgeProfile} alt="profile" width={50} height={50} />
+          {(selectedDistrict.product === "mid" || selectedDistrict.product === "edge")? <span>
+            <Image className='min-w-[50px]' src={selectedDistrict.product === "mid" ? medProfile : edgeProfile} alt="profile" width={50} height={50} />
           </span>: null}
           <button onClick={updateBtnHandler} className='flex items-center h-10 w-min-content px-4 bg-[#0E2367] rounded-full transition-all duration-300 ease-in-out hover:shadow-md mt-4'>Güncelle 
             <Edit2 className='ml-2' size={14}></Edit2>
@@ -82,7 +84,7 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
       <svg
         baseProfile="tiny"
         fill="#ececec"
-        stroke="black"
+        stroke="lightgray"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth=".2"
@@ -101,8 +103,7 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
             key={district.name + index}
             district={district}
             onHover={() => handleHover(district)}
-           
-           
+            onclick={() => handleClicked(district)} 
             isSelected={selectedDistrict?.id === district.id}
           />
         ))}

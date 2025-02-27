@@ -36,6 +36,17 @@
         color: #555;
         margin-right: 4px;
       }
+
+      &.mid{
+        background-color: #090b3e;
+      }
+      &.edge{
+        background-color: #662437;
+        color:#f9f9f9;
+        strong {
+          color: #f9f9f9;
+        }
+      }
     }
   }
 
