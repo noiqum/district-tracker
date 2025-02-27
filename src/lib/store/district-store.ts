@@ -19,10 +19,15 @@ export const useDistrictStore=create<IDistrictStoreState>()(
 
         updateDistrict: async (name: string, product: string, id: number): Promise<{ success: boolean; error: string | null }> => {
             try {
+                const {data:district}=await supabase.from("districts").select("*").eq("id",id)
+                console.log("disr",district)
                 const { data, error } = await supabase
                     .from("districts")
-                    .update({ name, product })
-                    .eq('id', id);
+                    .update({
+                        "name":name,
+                        "product":product
+                     })
+                    .eq('id', id).select()
                 if(data){
                     console.log("data update",data)
                 }

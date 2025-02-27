@@ -1,11 +1,7 @@
 .district {
     transition: fill 0.3s ease;
   
-    &:hover {
-      fill: #ffcc00; // Only the hovered district turns yellow
-    }
+    
   
-    &.selected {
-      fill: #ffcc00; // Only the tapped/selected district turns yellow
-    }
+    
   }

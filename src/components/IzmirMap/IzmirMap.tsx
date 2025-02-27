@@ -34,7 +34,7 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
   
     // Real-time subscription
     const subscription = supabase
-      .channel('public:districts')
+      .channel('districts')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'districts' }, (payload) => {
         if (payload.eventType === 'INSERT') {
           setDistricts((prev) => [...prev, payload.new as TDistrict]);
@@ -66,7 +66,7 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
       {selectedDistrict && (
         <div className="info-box">
           <h3>{selectedDistrict.name}</h3>
-          <p>Product: {selectedDistrict.id || 'N/A'}</p>
+          <p>Product: {selectedDistrict.product || 'N/A'}</p>
           <button onClick={updateBtnHandler} className='flex items-center h-10 w-min-content px-4 bg-[#0E2367] rounded-full transition-all duration-300 ease-in-out hover:shadow-md mt-4'>Güncelle 
             <Edit2 className='ml-2' size={14}></Edit2>
           </button>
