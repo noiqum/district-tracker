@@ -10,6 +10,9 @@ import { useAuthStore } from '@/lib/store/auth-store';
 import { useModalStore } from '@/lib/store/modal-store';
 import { Modal } from '../ModalProvider/ModalProvider';
 import { useDistrictStore } from '@/lib/store/district-store';
+import edgeProfile from "../../../public/edge.png";
+import medProfile from "../../../public/med.png";
+import Image from 'next/image';
 
 interface IzmirMapProps{
   classname:string,
@@ -67,6 +70,9 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
         <div className="info-box">
           <h3>{selectedDistrict.name}</h3>
           <p>Product: {selectedDistrict.product || 'N/A'}</p>
+          {(selectedDistrict.product === "med" || selectedDistrict.product === "edge")? <span>
+            <Image className='min-w-[50px]' src={selectedDistrict.product === "med" ? medProfile : edgeProfile} alt="profile" width={50} height={50} />
+          </span>: null}
           <button onClick={updateBtnHandler} className='flex items-center h-10 w-min-content px-4 bg-[#0E2367] rounded-full transition-all duration-300 ease-in-out hover:shadow-md mt-4'>Güncelle 
             <Edit2 className='ml-2' size={14}></Edit2>
           </button>
