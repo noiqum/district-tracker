@@ -3,6 +3,7 @@ import { TDistrict } from '@/Data/Data';
 import "./DistrictList.scss"
 import edgeProfile from "../../../public/edge.png";
 import medProfile from "../../../public/med.png";
+import { Edit2 } from 'lucide-react';
 
 interface DistrictListProps {
   districts: TDistrict[];
@@ -24,7 +25,9 @@ const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
               {district.product !== "edge"   && district.product !== "mid" && <span className='flex min-w-8 min-h-8 bg-gray-300 mx-2 rounded-sm'></span>}
             <strong>İlçe</strong> <span className='capitalize mx-2'>{district.name || 'Unnamed'}</span>,
             <strong className='mx-2'>Ürün:</strong> <span className='product'>{district.product || 'N/A'}</span> ,
-
+            <span className='ml-auto border-gray-700 rounded-md p-1 hover:bg-gray-400'>
+              <Edit2 size={18}></Edit2>
+            </span>
           </li>
         ))}
       </ul>
