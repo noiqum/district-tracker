@@ -12,17 +12,19 @@ const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
   return (
     <div className="district-list">
       <div className='district-list_head'>
-      <h2>İlçeler</h2>
+        <h2>İlçeler</h2>
       </div>
-      
+
       <ul>
         {districts.map((district) => (
-          <li className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" :""}`} key={district.id}>
-            <strong>Name:</strong> {district.name || 'Unnamed'}, 
-            <strong> Product:</strong> {district.product || 'N/A'}, 
-            <strong> ID:</strong> {district.id}
-            {district.product === "edge" && <img className='w-8 h-8' src={edgeProfile.src} alt="edge" />}
-            {district.product === "mid" && <img className='w-8 h-8 '  src={medProfile.src} alt="med" />}
+          <li className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" : ""}`} key={district.id}>
+           
+              {district.product === "edge" && <img className='w-8 h-8 inline-block mx-2' src={edgeProfile.src} alt="edge" />}
+              {district.product === "mid" && <img className='w-8 h-8 inline-block mx-2' src={medProfile.src} alt="med" />}
+              {district.product !== "edge"   && district.product !== "mid" && <span className='flex min-w-8 min-h-8 bg-gray-300 mx-2 rounded-sm'></span>}
+            <strong>İlçe</strong> <span className='capitalize mx-2'>{district.name || 'Unnamed'}</span>,
+            <strong className='mx-2'>Ürün:</strong> <span className='product'>{district.product || 'N/A'}</span> ,
+
           </li>
         ))}
       </ul>

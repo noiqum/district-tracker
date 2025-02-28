@@ -25,7 +25,10 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       color:#555;
-
+      position: relative;
+      display: flex;
+      align-items: center;
+      border-bottom: 5px solid #ccc;
       &:hover {
         background-color: #e0e0e0;
         transform: translateY(-2px);
@@ -38,15 +41,25 @@
       }
 
       &.mid{
-        background-color: #090b3e;
-      }
-      &.edge{
-        background-color: #662437;
-        color:#f9f9f9;
-        strong {
-          color: #f9f9f9;
+        border-bottom-color: #090b3e;
+
+        & .product{
+          color: #090b3e;
+          font-weight: 600;
+          font-size: 1.25rem;
+          text-transform: capitalize;
         }
       }
+      &.edge{
+        border-bottom-color: #662437;
+        & .product{
+          color: #662437;
+          font-weight: 600;
+          font-size: 1.25rem;
+          text-transform: capitalize;
+        }
+      }
+      
     }
   }
 
