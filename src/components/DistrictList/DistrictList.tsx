@@ -28,7 +28,7 @@ const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
       </div>
 
       <ul>
-        {districts.map((district) => (
+        {districts.filter(elm=>elm.name !== "").map((district) => (
           <li onClick={updateBtnHandler} className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" : ""}`} key={district.id}>
            
               {district.product === "edge" && <img className='w-8 h-8 inline-block mx-2' src={edgeProfile.src} alt="edge" />}
