@@ -14,7 +14,7 @@ interface IModalProviderProps{
 }
 
 export function ModalProvider ({children}:IModalProviderProps){
-    const {selectedModal,isModalOpen,closeModal}=useModalStore()
+    const {selectedModal,closeModal}=useModalStore()
     const renderModal=()=>{
         switch (selectedModal) {
             case Modal.AUTH:

@@ -15,7 +15,7 @@ interface DistrictUpdateDialogProps {
 export default function DistrictUpdateDialog({ 
   isOpen, 
   onClose, 
-  onUpdate,
+  
   initialDistrictName = '',
   initialProduct = ''
 }: DistrictUpdateDialogProps) {
@@ -23,7 +23,7 @@ export default function DistrictUpdateDialog({
   const [product, setProduct] = useState(initialProduct);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const {updateDistrict,selectedDistrict,setSelectedDistrict}=useDistrictStore()
+  const {updateDistrict,selectedDistrict}=useDistrictStore()
   
   if (!isOpen) return null;
   
@@ -34,12 +34,13 @@ export default function DistrictUpdateDialog({
     
     try {
       // Call the onUpdate function with the district name and product
-      const {success,error}= await updateDistrict(districtName,product,selectedDistrict?.id as number)
+      const {success}= await updateDistrict(districtName,product,selectedDistrict?.id as number)
       if(success){
         console.log("success")
       }
       onClose();
     } catch (err) {
+      console.error(err);
       setError('Failed to update district');
     } finally {
       setLoading(false);
