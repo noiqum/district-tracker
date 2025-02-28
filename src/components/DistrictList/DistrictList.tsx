@@ -13,6 +13,7 @@ interface DistrictListProps {
 }
 
 const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
+  const [filteredDistricts, setFilteredDistricts] = React.useState<TDistrict[]>(districts);
   const { isAuthenticated, isAdmin } = useAuthStore();
   const { openModal } = useModalStore();
   const updateBtnHandler=()=>{
@@ -25,10 +26,25 @@ const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
     <div className="district-list">
       <div className='district-list_head'>
         <h2>İlçeler</h2>
+        <div>
+          <input 
+        type="text" 
+        placeholder="ilçe ara..." 
+        className='border border-gray-300 rounded-md p-1'
+        onChange={(e) => {
+          const searchKey = e.target.value.toLowerCase();
+          if (searchKey === "") {
+            setFilteredDistricts(districts);
+          } else {
+            setFilteredDistricts(districts.filter(district => district.name.toLowerCase().includes(searchKey)));
+          }
+        }} 
+          />
+        </div>
       </div>
 
       <ul>
-        {districts.filter(elm=>elm.name !== "").map((district) => (
+        {filteredDistricts.filter(elm=>elm.name !== "").map((district) => (
           <li onClick={updateBtnHandler} className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" : ""}`} key={district.id}>
            
               {district.product === "edge" && <img className='w-8 h-8 inline-block mx-2' src={edgeProfile.src} alt="edge" />}

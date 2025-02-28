@@ -3,6 +3,13 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  &_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
   
   h2 {
     margin-bottom: 10px;
