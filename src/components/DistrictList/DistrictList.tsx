@@ -4,12 +4,23 @@ import "./DistrictList.scss"
 import edgeProfile from "../../../public/edge.png";
 import medProfile from "../../../public/med.png";
 import { Edit2 } from 'lucide-react';
+import { useModalStore } from '@/lib/store/modal-store';
+import { useAuthStore } from '@/lib/store/auth-store';
+import { Modal } from '../ModalProvider/ModalProvider';
 
 interface DistrictListProps {
   districts: TDistrict[];
 }
 
 const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
+  const { isAuthenticated, isAdmin } = useAuthStore();
+  const { openModal } = useModalStore();
+  const updateBtnHandler=()=>{
+      if(isAuthenticated && isAdmin) {
+        return  openModal(Modal.UPDATE_DISTRICT)
+      }
+      openModal(Modal.AUTH)
+    }
   return (
     <div className="district-list">
       <div className='district-list_head'>
@@ -18,7 +29,7 @@ const DistrictList: React.FC<DistrictListProps> = ({ districts }) => {
 
       <ul>
         {districts.map((district) => (
-          <li className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" : ""}`} key={district.id}>
+          <li onClick={updateBtnHandler} className={`${district.product === "mid" ? "mid" : district.product === "edge" ? "edge" : ""}`} key={district.id}>
            
               {district.product === "edge" && <img className='w-8 h-8 inline-block mx-2' src={edgeProfile.src} alt="edge" />}
               {district.product === "mid" && <img className='w-8 h-8 inline-block mx-2' src={medProfile.src} alt="med" />}
