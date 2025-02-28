@@ -2,6 +2,7 @@
 
 import { useDistrictStore } from '@/lib/store/district-store';
 import { useState } from 'react';
+import { izmirDistricts, productTypes } from '@/Data/Data';
 
 interface DistrictUpdateDialogProps {
   isOpen: boolean;
@@ -71,29 +72,41 @@ export default function DistrictUpdateDialog({
             <label htmlFor="districtName" className="mb-1 block text-sm font-medium text-slate-900">
               District Name
             </label>
-            <input
+            <select
               id="districtName"
-              type="text"
               value={districtName}
               onChange={(e) => setDistrictName(e.target.value)}
               className="w-full rounded-md border border-slate-600 p-2 focus:border-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 text-slate-900"
               required
-            />
+            >
+              <option value="" disabled>Select a district</option>
+              {izmirDistricts.map((district) => (
+                <option key={district.id} value={district.name}>
+                  {district.name}
+                </option>
+              ))}
+            </select>
           </div>
           
-          <div className="mb-6">
+            <div className="mb-6">
             <label htmlFor="product" className="mb-1 block text-sm font-medium text-slate-900">
               Product
             </label>
-            <input
+            <select
               id="product"
-              type="text"
               value={product}
               onChange={(e) => setProduct(e.target.value)}
               className="w-full text-slate-900 rounded-md border border-slate-600 p-2 focus:border-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500"
               required
-            />
-          </div>
+            >
+              <option value="" disabled>Select a product</option>
+              {productTypes.map((productType) => (
+              <option key={productType.id} value={productType.name}>
+                {productType.name}
+              </option>
+              ))}
+            </select>
+            </div>
           
           <button
             type="submit"
