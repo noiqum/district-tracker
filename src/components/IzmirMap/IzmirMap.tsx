@@ -107,6 +107,34 @@ const IzmirMap = ({ classname,districtList }: IzmirMapProps) => {
             isSelected={selectedDistrict?.id === district.id}
           />
         ))}
+        <text transform="matrix(1 0 0 1 299.7132 229.2954)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Aliağa</text>
+<text transform="matrix(1 0 0 1 307.5308 343.2203)" style={{ fontFamily: 'Tahoma', fontSize: '9px' }} className="maplabels1">Balçova</text>
+<text transform="matrix(1 0 0 1 437.0374 404.1537)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Bayındır</text>
+<text transform="matrix(1 0 0 1 329.6616 87.0303)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Bergama</text>
+<text transform="matrix(1 0 0 1 585.0765 455.8079)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Beydağ</text>
+<text transform="matrix(1 0 0 1 348.1419 321.455)" style={{ fontFamily: 'Tahoma', fontSize: '12px' }} className="maplabels1">Bornova</text>
+<text transform="matrix(1 0 0 1 355.6628 365.8876)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Buca</text>
+<text transform="matrix(1 0 0 1 138.3586 392.0891)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Çeşme</text>
+<text transform="matrix(1 0 0 1 289.8953 325.0521)" style={{ fontFamily: 'Tahoma', fontSize: '12px' }} className="maplabels1">Çiğli</text>
+<text transform="matrix(1 0 0 1 275.0827 112.8478)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Dikili</text>
+<text transform="matrix(1 0 0 1 253.2453 258.9125)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Foça</text>
+<text transform="matrix(1 0 0 1 329.6617 377.1931)" style={{ fontFamily: 'Tahoma', fontSize: '9px' }} className="maplabels1">G.emir</text>
+<text transform="matrix(1 0 0 1 266.4752 373.5229)" style={{ fontFamily: 'Tahoma', fontSize: '9px' }} className="maplabels1">G.bahçe</text>
+<text transform="matrix(1 0 0 1 165.3168 314.6174)" style={{ fontFamily: 'Tahoma', fontSize: '11px' }} className="maplabels1">Karaburun</text>
+<text transform="matrix(6.914030e-02 -0.9976 0.9976 6.914030e-02 338.316 330.4543)" style={{ fontFamily: 'Tahoma', fontSize: '9px' }} className="maplabels1">K.ıyaka</text>
+<text transform="matrix(1 0 0 1 397.1702 352.2954)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Kemalpaşa</text>
+<text transform="matrix(1 0 0 1 381.353 141.423)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Kınık</text>
+<text transform="matrix(1 0 0 1 612.0575 416.2152)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Kiraz</text>
+<text transform="matrix(0.4304 -0.9026 0.9026 0.4304 336.1708 365.204)" style={{ fontFamily: 'Tahoma', fontSize: '10px' }} className="maplabels1">Konak</text>
+<text transform="matrix(1 0 0 1 310.7133 450.0219)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Menderes</text>
+<text transform="matrix(1 0 0 1 295.8926 281.7238)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Menemen</text>
+<text transform="matrix(1 0 0 1 295.5669 363.3366)" style={{ fontFamily: 'Tahoma', fontSize: '9px' }} className="maplabels1">N.dere</text>
+<text transform="matrix(1 0 0 1 517.2695 410.9549)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Ödemiş</text>
+<text transform="matrix(0.4774 0.8787 -0.8787 0.4774 259.7363 398.8381)" style={{ fontFamily: 'Tahoma', fontSize: '12px' }} className="maplabels1">Seferihisar</text>
+<text transform="matrix(1 0 0 1 378.7809 498.6412)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Selçuk</text>
+<text transform="matrix(1 0 0 1 461.3101 452.1174)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Tire</text>
+<text transform="matrix(1 0 0 1 372.7676 422.9879)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Torbalı</text>
+<text transform="matrix(1 0 0 1 205.4951 392.0894)" style={{ fontFamily: 'Tahoma', fontSize: '13px' }} className="maplabels1">Urla</text>
       </svg>
     </div>
   );

@@ -9,6 +9,16 @@
   display: block;
 }
 
+.maplabels1 {
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  stroke: #000;
+  fill: #000;
+  text-shadow: 0 0 2px #fff;
+}
+
 .info-box {
   position: absolute;
   top: 20px;
